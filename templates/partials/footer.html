@@ -1,0 +1,20 @@
+<footer class="bg-body-tertiary border-top mt-auto py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="mb-1">&copy; {% now "Y" %} lwijshoff. All rights reserved.</p>
+                <p class="text-muted small mb-0">
+                    <a href="https://github.com/lwijshoff" target="_blank" rel="noopener" class="text-muted text-decoration-none">
+                        <i class="bi bi-github me-1"></i>
+                        github.com/lwijshoff
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="{% url 'privacy' %}" class="me-3">Privacy</a>
+                <a href="{% url 'terms' %}" class="me-3">Terms</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,46 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 text-center">
+            <!-- Hero section -->
+            <div class="mb-5">
+                <h1 class="display-4 fw-bold mb-3">Welcome</h1>
+                <p class="lead mb-4 text-muted">Your patient portal is ready.</p>
+                
+                <!-- 
+                {% if user.is_authenticated %}
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <div class="card-body text-start">
+                            <h2 class="card-title h4 mb-3">Hi, {{ user.username }}!</h2>
+                            <p class="card-text mb-4">Welcome back to your account.</p>
+                            
+                            <form action="{% url 'logout' %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                {% bootstrap_button "Log Out" button_type="submit" button_class="btn-outline-secondary btn-lg" %}
+                            </form>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="card border-0 shadow-sm p-5 mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title h4 mb-4">Please sign in</h2>
+                            <p class="card-text mb-4">Access your patient account to view records and manage appointments.</p>
+                            
+                            <a href="{% url 'login' %}" class="btn btn-primary btn-lg px-4">
+                                Log In
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+                -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
