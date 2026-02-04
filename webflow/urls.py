@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
+from django.conf.urls import handler400, handler403, handler404, handler500
+from .settings import DEBUG
 from . import views
 
 urlpatterns = [
@@ -29,3 +31,9 @@ urlpatterns = [
     path('privacy/', views.privacy, name='privacy'),
     path('terms/', views.terms, name='terms'),
 ]
+
+if not DEBUG:
+    handler400 = 'webflow.views.bad_request'
+    handler403 = 'webflow.views.permission_denied'
+    handler404 = 'webflow.views.page_not_found'
+    handler500 = 'webflow.views.server_error'

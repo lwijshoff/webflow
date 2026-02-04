@@ -1,0 +1,71 @@
+{% load static django_bootstrap5 %}
+
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="{% static 'webflow/img/logo-light.svg' %}" 
+      id="theme-favicon" 
+      data-dark-src="{% static 'webflow/img/logo-dark.svg' %}">
+    <title>{% block title %}Admin Dashboard - My Site{% endblock %}</title>
+
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    
+    <!-- Check if user is authenticated -->
+    {% if user.is_authenticated %}
+    
+        <!-- Check if the user is a staff member (admin) -->
+        {% if user.is_staff %}
+        
+            <!-- Header -->
+            {% include "partials/header.html" %}
+            
+            <!-- Sidebar -->
+            <div class="d-flex" id="admin-dashboard-wrapper">
+                <nav class="p-3" id="sidebar">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/admin/">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/auth/user/">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Reports</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logs</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Main Content -->
+                <main class="container-fluid my-4 flex-grow-1" id="content">
+                    {% block content %}{% endblock %}
+                </main>
+            </div>
+
+            <!-- Footer -->
+            {% include "partials/footer.html" %}
+        
+        {% else %}
+            <!-- Non-admin users -->
+            {% include "403.html" %}
+        {% endif %}
+        
+    {% else %}
+        <!-- Non-authenticated users -->
+        {% include "403.html" %}
+    {% endif %}
+    
+    {% bootstrap_javascript %}
+    <script src="{% static 'webflow/js/theme.js' %}"></script>
+</body>
+</html>
