@@ -22,30 +22,14 @@
         {% if user.is_staff %}
         
             <!-- Header -->
-            {% include "partials/header.html" %}
+            {% include "admin/partials/header.html" %}
             
             <!-- Sidebar and Main Content Wrapper -->
             <div class="d-flex flex-column flex-md-row" id="admin-dashboard-wrapper">
                 
                 <!-- Sidebar for Desktop (always visible on larger screens) -->
                 <nav class="p-3 border-end border-bottom d-none d-md-block" id="desktop-sidebar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/admin/">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/auth/user/">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Reports</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Logs</a>
-                        </li>
-                    </ul>
+                    {% include 'admin/partials/sidebar_items.html' %}
                 </nav>
 
                 <!-- Mobile Sidebar (offcanvas) -->
@@ -55,23 +39,7 @@
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/admin/">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/admin/auth/user/">Users</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Settings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Reports</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Logs</a>
-                            </li>
-                        </ul>
+                        {% include 'admin/partials/sidebar_items.html' %}
                     </div>
                 </div>
 
