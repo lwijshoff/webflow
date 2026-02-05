@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="{% static 'webflow/img/logo-light.svg' %}" 
       id="theme-favicon" 
       data-dark-src="{% static 'webflow/img/logo-dark.svg' %}">
-    <title>{% block title %}Admin Dashboard - My Site{% endblock %}</title>
+    <title>{% block title %}WebFlow - Admin{% endblock %}</title>
 
     {% bootstrap_css %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -24,9 +24,11 @@
             <!-- Header -->
             {% include "partials/header.html" %}
             
-            <!-- Sidebar -->
-            <div class="d-flex" id="admin-dashboard-wrapper">
-                <nav class="p-3" id="sidebar">
+            <!-- Sidebar and Main Content Wrapper -->
+            <div class="d-flex flex-column flex-md-row" id="admin-dashboard-wrapper">
+                
+                <!-- Sidebar for Desktop (always visible on larger screens) -->
+                <nav class="p-3 border-end border-bottom d-none d-md-block" id="desktop-sidebar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="/admin/">Dashboard</a>
@@ -45,6 +47,33 @@
                         </li>
                     </ul>
                 </nav>
+
+                <!-- Mobile Sidebar (offcanvas) -->
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="mobile-sidebar" aria-labelledby="mobileSidebarLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="mobileSidebarLabel" class="offcanvas-title">Admin Dashboard</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/admin/">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/auth/user/">Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Reports</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Logs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
                 <!-- Main Content -->
                 <main class="container-fluid my-4 flex-grow-1" id="content">
@@ -67,5 +96,6 @@
     
     {% bootstrap_javascript %}
     <script src="{% static 'webflow/js/theme.js' %}"></script>
+    <script src="{% static 'webflow/js/mobile_sidebar.js' %}"></script>
 </body>
 </html>
