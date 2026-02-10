@@ -7,6 +7,8 @@ class UserProfile(models.Model):
     location = models.CharField(max_length=100, blank=True, default='')
     website = models.URLField(blank=True, default='')
     avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
+    # Whether the user is eligible to book lunch via the web interface
+    lunch_eligible = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

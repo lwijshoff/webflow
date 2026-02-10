@@ -6,7 +6,7 @@ from .models import UserProfile
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
     can_delete = False
-    fields = ('bio', 'location', 'website', 'avatar', 'created_at', 'updated_at')
+    fields = ('bio', 'location', 'website', 'avatar', 'lunch_eligible', 'created_at', 'updated_at')
     readonly_fields = ('created_at', 'updated_at')
 
 

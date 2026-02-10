@@ -1,0 +1,620 @@
+<html class="js " lang="de" dir="ltr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-title" content="xChange">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" href="img/schullogo57.png" sizes="57x57" <link="">
+	<link rel="apple-touch-icon" href="img/schullogo76.png" sizes="76x76">
+	<link rel="apple-touch-icon" href="img/schullogo114.png" sizes="114x114">
+	<link rel="apple-touch-icon" href="img/schullogo120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="img/schullogo144.png" sizes="144x144">
+	<link rel="apple-touch-icon" href="img/schullogo152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="img/schullogo180.png" sizes="180x180">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/xchange/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/xchange/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
+
+
+    <title>xChange</title>
+	<link href="css/foundation-icons.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/motion-ui.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/cap7.css">
+	
+	
+	
+						<link href="css/app.css?v=1730186837" rel="stylesheet" type="text/css">
+			<link rel="stylesheet" href="css/step.min.css">
+			<link rel="stylesheet" href="css/all.min.css">
+			<link rel="stylesheet" href="css/foundation.min.css?v=1617642963">
+				
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.migrate.min.js"></script>
+	<script src="js/datepicker.js"></script>
+	<script src="js/modernizr-custom.js"></script>
+    <script src="js/header.js?v=1730227629"></script>
+	<script src="js/canvasdraw.js?v=1587664856"></script>
+    <script src="js/NewSelect.js"></script> 
+	    <meta class="foundation-mq"></head>
+<body translate="no" onload="init();" oncontextmenu="return false" data-whatinput="mouse">
+<div id="Ajax"><div class="ring"><div></div></div></div>
+<div id="ajaxinfo" style="display:none"></div>
+<!--<div class="fixed top hide-for-small-only hide-for-medium-only">
+	<p style="background-image:url(img/fvs.png);width:120px"></p>
+	<div class="xchangeschriftzug" style="flex-grow:1;"></div>
+	<div class="webportal" style="flex-grow:2;"></div>
+	<p style="background-image:url(img/fvs.png);width:120px"></p>
+</div>
+-->
+<script>var uploadtobbb=false;</script><div class="title-bar fixed hide-for-small-only hide-for-medium-only" id="tickerdiv">
+		
+		
+<div id="news_ticker" style="left: 3px; top: auto; font-size: 1.4em; height: 36px;"><p style="width:100%;text-align:center;">Keine Nachrichten</p></div></div>
+<div class="varmenu" id="mainmenu">
+<div class="title-bar" data-responsive-toggle="main_menu" id="mail_menu_bar" data-hide-for="large" style="display: none;">
+<button class="menu-icon" type="button" id="smallmenubutton" data-toggle=""></button>
+<div class="title-bar-title" id="title-bar-title"></div></div>
+
+<div class="top-bar" id="main_menu">
+<div class="top-bar-left">
+<ul class="vertical large-horizontal dropdown menu" data-dropdown-menu="p0kgte-dropdown-menu" role="menubar">
+					<li class="" role="menuitem"><a href="willk.php" id="imenu_home" style="" tabindex="0"><span class="fas fa-home"></span><i class="fas fa-home"></i></a></li>
+			<li class="" style="display:none" aria-describedby="BadgeVC" role="menuitem"><a onclick="getVMeetings()" id="imenu_video"><i style="font-style:normal;color:#f00" class="fas fa-video"></i><span class="hide-for-small-only hide-for-medium-only menulabel">Videochat</span></a><span id="BadgeVC" class="bdg"></span></li>
+				<li class="" role="menuitem"><a onclick="$('#smallmenubutton').trigger('click');getSettings();" id="imenu_sett"><span class="fas fa-cog"></span><i class="fas fa-cog"></i></a></li>
+																													<li class="" role="menuitem"><a href="mittagessenbuchen.php" id="imenu_mittagesser" style="background-image:url(img/mittagessen.svg)">&nbsp;<span class="hide-for-small-only hide-for-medium-only menulabel"></span></a></li>
+																									<li class="" role="menuitem"><a href="docupload.php" id="imenu_upl" style=""><i class="fas fa-cloud-upload-alt"></i><span class="hide-for-small-only hide-for-medium-only menulabel">Upload</span></a></li>
+																																		
+								
+				
+											<li class="" style="display:none" aria-describedby="BadgeVotings" role="menuitem"><a href="umfrage.php" id="imenu_votings" style=""><i style="font-style:normal" class="fas fa-poll"></i></a><span id="BadgeVotings" class="bdg"></span></li>
+		<li class="" role="menuitem"><a name="menulink" onclick="$('#afeedb').foundation('open');" hilfe="Hier können Sie Ihre Meinung äußern und Verbesserungsvorschläge machen loswerden." style="background-image:url(img/feedback.svg)">&nbsp;</a></li>
+												<li class="hide-for-large" role="menuitem"><a onclick="$('#Hilfe').foundation('open');" style="background-image:url(img/menu_help.svg)">&nbsp;</a></li>
+		<li class="hide-for-large" role="menuitem"><a name="menulink" href="logout.php" style="background-image:url(img/menu_logout.svg)">&nbsp;</a></li>	
+	</ul></div>
+  	<div class="top-bar-right">
+	    <ul class="dropdown menu" data-dropdown-menu="zjpqgg-dropdown-menu" role="menubar">
+	      	<li class="show-for-large" role="menuitem"><a onclick="$('#Hilfe').foundation('open');" style="background-image:url(img/menu_help.svg)" tabindex="0">&nbsp;</a></li>
+	      								<li class="show-for-large" role="menuitem"><a name="menulink" onclick="turnOffAutoLogin(false)" href="logout.php" hilfe="Vergiss bitte nicht, Dich abzumelden, wenn Du hier fertig bist." style="background-image:url(img/menu_logout.svg)">&nbsp;</a></li>
+							    </ul>
+	</div>
+</div>
+</div>
+
+<script>
+function book(dat,mid,elem) {
+	var formData={aktion:"bucheMittagessen",datum:dat,mid:mid};
+	$.ajax({
+		url: "datanew.php",
+		type: "POST",
+		data: formData
+	}).done(function(d) {
+		if(d!="1") {
+			alert(d);
+		} else {
+			var a=document.getElementsByName(dat);
+			for(i=0;i<a.length;i++) {
+				a[i].classList.remove("booked");
+				if(a[i]==elem) a[i].classList.add("booked");
+			}
+		}
+	});
+}
+</script>
+<style>
+.booked {
+	background-color:#8f3 !important;
+}
+
+.kontostand {
+	position:absolute;
+	right:20px;
+	width:200px;
+	margin-top:30px;
+	border:2px solid black;
+	background:#bbb;
+	font-size:1.2em;
+	padding:3px 5px;
+	color:#000;
+	cursor:pointer;
+}
+.neg {
+	color:#f00 !important;
+}
+.kontostand span {
+	float:right;
+	color:#280;
+}
+.kontostand:hover {
+	background:#ddd;
+	border-color:#444;
+	color:#000;
+}
+.warning {
+	background:#db2;
+	color:#000;
+}
+.warning:hover {
+	background:#b90;
+	color:#000;
+}
+</style>
+<a href="mittagessen_kontoauszug.php" target="_blank" class=" warning kontostand">Kontostand: <span class="pos">0,00€</span></a>
+<h2 class="pageheader">Mittagessen buchen</h2>
+<h5 class="pageheader">Das Essen kann immer bis 24.00 Uhr für den folgenden Schultag gebucht werden.</h5>
+<h5 class="pageheader"></h5>
+<div class="row full-width">
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Mi, 11.02.</th></tr>
+					<tr class="booked" name="2026-02-11" onclick="book('2026-02-11',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-11" onclick="book('2026-02-11',1,this)">
+							<td>Möhreneintopf untereinander mit Geflügelfrikadelle, <br>Quarkspeise</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-11" onclick="book('2026-02-11',2,this)">
+							<td>Gemüseschnitzel in Kräutersauce mit Kartoffeln, <br>Quarkspeise</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-11" onclick="book('2026-02-11',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Do, 12.02.</th></tr>
+					<tr class="booked" name="2026-02-12" onclick="book('2026-02-12',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-12" onclick="book('2026-02-12',1,this)">
+							<td>Torellini in Tomatensauce mit Blattsalat, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-12" onclick="book('2026-02-12',2,this)">
+							<td>Kürbis-Falafel in Tomatensauce mit Spätzle, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-12" onclick="book('2026-02-12',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Mo, 16.02.</th></tr>
+					<tr class="booked" name="2026-02-16" onclick="book('2026-02-16',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-16" onclick="book('2026-02-16',4,this)">
+							<td>beweglicher Ferientag (Rosenmontag)</td>
+							<td style="text-align:right">0,00€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Di, 17.02.</th></tr>
+					<tr class="booked" name="2026-02-17" onclick="book('2026-02-17',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-17" onclick="book('2026-02-17',4,this)">
+							<td>kein Unterricht (pädagog. Tag)</td>
+							<td style="text-align:right">0,00€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Mi, 18.02.</th></tr>
+					<tr class="booked" name="2026-02-18" onclick="book('2026-02-18',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-18" onclick="book('2026-02-18',1,this)">
+							<td>Kartoffelsuppe mit Geflügelwürstchen, <br>Fruchtjoghurt</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-18" onclick="book('2026-02-18',2,this)">
+							<td>Nudeln mit Tomatensauce und Tomatensalat, <br>Fruchtjoghurt</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-18" onclick="book('2026-02-18',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Do, 19.02.</th></tr>
+					<tr class="booked" name="2026-02-19" onclick="book('2026-02-19',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-19" onclick="book('2026-02-19',1,this)">
+							<td>Chickennuggets mit Erbsen und Wedges, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-19" onclick="book('2026-02-19',2,this)">
+							<td>Pfannekuchen mit Apfelmus, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-19" onclick="book('2026-02-19',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Mo, 23.02.</th></tr>
+					<tr class="booked" name="2026-02-23" onclick="book('2026-02-23',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-23" onclick="book('2026-02-23',1,this)">
+							<td>Geflügelhackbraten mit Mischgemüse und Kartoffeln, <br>Kirschcreme</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-23" onclick="book('2026-02-23',2,this)">
+							<td>Gemüsemedaillon in Bärlauchsauce mit Kartoffeln, <br>Kirschcreme</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-23" onclick="book('2026-02-23',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Di, 24.02.</th></tr>
+					<tr class="booked" name="2026-02-24" onclick="book('2026-02-24',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-24" onclick="book('2026-02-24',1,this)">
+							<td>Hühnerfrikassee mit Erbsen und Butterreis, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-24" onclick="book('2026-02-24',2,this)">
+							<td>Fischfilet mit Blattsalat und Kartoffeln, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-24" onclick="book('2026-02-24',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Mi, 25.02.</th></tr>
+					<tr class="booked" name="2026-02-25" onclick="book('2026-02-25',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-25" onclick="book('2026-02-25',1,this)">
+							<td>Grünkohleintopf untereinander mit Gefügelbratwurst, <br>Quarkspeise</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-25" onclick="book('2026-02-25',2,this)">
+							<td>Quarkkeulchen mit Zimt und Zucker sowie Kompott, <br>Quarkspeise</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-25" onclick="book('2026-02-25',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Do, 26.02.</th></tr>
+					<tr class="booked" name="2026-02-26" onclick="book('2026-02-26',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-02-26" onclick="book('2026-02-26',1,this)">
+							<td>Hähnchenbrust in Currysauce mit Möhren und Schupfnudeln, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-26" onclick="book('2026-02-26',2,this)">
+							<td>Blumenkohl-Käsemedaillon mit Kräuterquark und Salzkartoffeln, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-02-26" onclick="book('2026-02-26',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Mo, 02.03.</th></tr>
+					<tr class="booked" name="2026-03-02" onclick="book('2026-03-02',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-03-02" onclick="book('2026-03-02',1,this)">
+							<td>Gefügelklöße in Tomatensauce mit Leipziger Allerlei und Paprikareis, <br>Erdbeercreme</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-03-02" onclick="book('2026-03-02',2,this)">
+							<td>Falafelbällchen mit Kräutersauce und Kartoffeln, <br>Erdbeercreme</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-03-02" onclick="book('2026-03-02',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Di, 03.03.</th></tr>
+					<tr class="booked" name="2026-03-03" onclick="book('2026-03-03',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-03-03" onclick="book('2026-03-03',1,this)">
+							<td>Rindergeschnetzeltes mit Brokkoli und Nudeln, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-03-03" onclick="book('2026-03-03',2,this)">
+							<td>Fischfilet paniert mit Salat und Kartoffeln, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-03-03" onclick="book('2026-03-03',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Mi, 04.03.</th></tr>
+					<tr class="booked" name="2026-03-04" onclick="book('2026-03-04',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-03-04" onclick="book('2026-03-04',1,this)">
+							<td>Möhren untereinander mit Geflügelfrikadelle, <br>Fruchtjoghurt</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-03-04" onclick="book('2026-03-04',2,this)">
+							<td>Gemüsefrikadelle in Kräutersauce mit Schwenkkartoffeln, <br>Fruchtjoghurt</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-03-04" onclick="book('2026-03-04',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+					<div class="large-2 columns">
+				<table>
+					<tbody><tr><th>Do, 05.03.</th></tr>
+					<tr class="booked" name="2026-03-05" onclick="book('2026-03-05',0, this)"><td colspan="2">Kein Essen</td></tr>
+											<tr class="" name="2026-03-05" onclick="book('2026-03-05',1,this)">
+							<td>Putenschnitzel mit Mischgemüse und Butterreis, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-03-05" onclick="book('2026-03-05',2,this)">
+							<td>Pancake mit Vanillesauce und Kompott, <br>Frischobst</td>
+							<td style="text-align:right">4,95€</td>
+						</tr>
+											<tr class="" name="2026-03-05" onclick="book('2026-03-05',3,this)">
+							<td>Salatbüfett<br>Baguette</td>
+							<td style="text-align:right">3,50€</td>
+						</tr>
+									</tbody></table>
+			</div>
+				<div class="large-2 columns">
+		</div>
+	</div>
+	<div id="feedback"><p></p><closebut onclick="this.parentNode.classList.remove('open')">×</closebut></div>
+<div class="reveal" id="msgOuter" data-reveal="j898od-reveal" data-animation-in="scale-in-top fast" data-closable="slide-out-right fast" role="dialog" aria-hidden="true" data-yeti-box="msgOuter" data-resize="msgOuter" data-events="resize"><p></p>
+	<button class="close-button" data-close="" aria-label="Close modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<div class="reveal" style="margin-top:20px" id="freeReveal" data-reveal="uz7hvl-reveal" role="dialog" aria-hidden="true" data-yeti-box="freeReveal" data-resize="freeReveal" data-events="resize"><p></p>
+	<button class="close-button" data-close="" aria-label="Close modal" type="button"><span aria-hidden="true">×</span></button>
+</div>
+<div id="cap" style="display:none"><div><closer onclick="$(this.parentNode.parentNode).hide()">×</closer>
+	<h2 class="pageheader">Bild einstellen</h2>
+
+	<div id="pickUsers" style="" class="">
+		<fieldset style="position:absolute;left:0;right:0;margin:auto;width:90%;display:block" id="fspulev1">
+			<div style="text-align:center"><button class="button secondary full-width" id="pUBut" onclick="getPickUsers();$('#pulev1').show();">Empfänger wählen</button></div>
+			<div id="pulev1"></div>
+			<div id="pulev2">
+				<table class="selt" id="pickul2"><tbody><tr><th colspan="3" style="text-align:right">Alle&nbsp;</th><th style="padding:0"><div class="checker"><input type="checkbox" id="cupall" onchange="cupcheckall(this.checked);"><label for="cupall"></label></div></th></tr><tr><th>Name</th><th style="width:24px"></th><th>Name</th><th style="width:24px"></th></tr></tbody></table>
+			</div>
+			<div id="pulev3"><button id="takephoto" class="button alert" disabled="" onclick="event.preventDefault();document.getElementById('upfile').click();"></button></div>
+		</fieldset>
+				
+	</div>
+	<div class="small-1 column upbtn">
+		<input id="upfile" style="display:none" type="file" accept="image/*;capture=camera" onchange="zeigeAjax();setPictureMailTxt();sendphoto();">
+	</div>
+</div></div>
+<div class="reveal" id="sender" data-reveal="4e5sei-reveal" role="dialog" aria-hidden="true" data-yeti-box="sender" data-resize="sender" data-events="resize"><p><span id="senderInfoText">Versende Nachrichten</span><span id="progressing"></span></p><progress id="fileprogbar" value="0" max="100" style=""></progress><span class="senderspan" id="filefertig"></span><progress id="mailprogbar" value="0" max="100" style=""></progress><span class="senderspan" id="mailsfertig"></span><progress id="pushprogbar" value="0" max="100" style=""></progress><span class="senderspan" id="pushfertig"></span><button class="close-button" data-close="" aria-label="Close modal" onclick="handleCloseSender()" type="button"><span aria-hidden="true">×</span></button></div>
+	<div class="reveal" id="afeedb" data-reveal="t1nlkv-reveal" role="dialog" aria-hidden="true" data-yeti-box="afeedb" data-resize="afeedb" data-events="resize">
+		<h2>Feedback</h2>
+		<input type="hidden" id="uri" value="/xchange/mittagessenbuchen.php">
+		<table class="sTable" style="width:100%;height:260px;">
+			<tbody><tr>
+				<th style="width:80px;">Kommentar:</th>
+				<td><textarea id="afeedbmssg" style="width:100%;height:240px;"></textarea></td>
+			</tr>
+			<tr style="height:40px;">
+				<td colspan="2" style="border:none;text-align:center;">
+					<button class="button" onclick="sendfeedb(this.parentNode.parentNode.previousSibling.previousSibling.firstChild.nextSibling.nextSibling.nextSibling.firstChild.value)">Feedback senden</button>
+				</td>
+			</tr>
+		</tbody></table>
+		<button class="close-button" data-close="" aria-label="Close modal" type="button"><span aria-hidden="true">×</span></button>
+	</div>
+	<div id="Einstellungen" class="reveal" data-reveal="qnio06-reveal" role="dialog" aria-hidden="true" data-yeti-box="Einstellungen" data-resize="Einstellungen" data-events="resize">
+		<div class="small-12 medium-12 large-12 columns" id="settings"><h3>Einstellungen</h3>
+			<div>
+				<div class="row input-group">
+					<span class="input-group-label">eMail-Adresse</span>
+					<input class="input-group-field" type="email" id="email">
+					<div class="input-group-button">
+						<input type="submit" class="button" value="Speichern" onclick="setSetting(this.parentNode.previousSibling.previousSibling)">
+					</div>
+				</div>
+				<p class="help-text" id="emailHelpText">Mit der eMail Adresse können Sie benachrichtigt werden und ein neues Passwort anfordern.</p>
+			</div>
+									<form class="custom">
+			<div class="row input-group" id="groupy">
+				<div class="small-8 medium-6 large-6 columns">
+					<span class="input-group-label">Nachricht bei neuen Mitteilungen</span>
+				</div>
+				<div class="small-2 medium-3 large-3 columns center">
+					<div class="switch medium">
+						<input class="switch-input" id="y" type="checkbox" name="switch-y" checked="" value="1" onchange="setSetting(this);">
+				    	<label class="switch-paddle" for="y">
+							<span class="switch-active" aria-hidden="true">Ja</span>
+							<span class="switch-inactive" aria-hidden="true">Nein</span>
+						</label>
+				    </div>
+				</div>
+							</div>
+			</form>
+									<form class="custom">
+				<div class="row input-group" id="groupx">
+					<div class="small-8 medium-6 large-6 columns">
+						<span class="input-group-label">Nachricht bei neuen Dateien</span>
+					</div>
+					<div class="small-2 medium-3 large-3 columns center">
+						<div class="switch medium">
+							<input class="switch-input" id="x" type="checkbox" name="switch-x" checked="" value="1" onchange="setSetting(this);">
+					    	<label class="switch-paddle" for="x">
+								<span class="switch-active" aria-hidden="true">Ja</span>
+								<span class="switch-inactive" aria-hidden="true">Nein</span>
+							</label>
+					    </div>
+					</div>
+									</div>
+			</form>
+						<form class="custom">
+				<div class="row input-group" id="groupz">
+					<div class="small-8 medium-6 large-6 columns">
+						<span class="input-group-label">Nachricht bei Vertretungen</span>
+					</div>
+					<div class="small-2 medium-3 large-3 columns center">
+						<div class="switch medium">
+							<input class="switch-input" id="z" type="checkbox" name="switch-z" checked="" value="1" onchange="setSetting(this);">
+					    	<label class="switch-paddle" for="z">
+								<span class="switch-active" aria-hidden="true">Ja</span>
+								<span class="switch-inactive" aria-hidden="true">Nein</span>
+							</label>
+					    </div>
+					</div>
+									</div>
+			</form>
+						<form class="custom">
+				<div class="row input-group" id="groupx">
+					<div class="small-8 medium-6 large-6 columns">
+						<span class="input-group-label">Nachricht bei neuen Nachrichten</span>
+					</div>
+					<div class="small-2 medium-3 large-3 columns center">
+						<div class="switch medium">
+							<input class="switch-input" id="aa" type="checkbox" name="switch-x" value="1" onchange="setSetting(this);">
+					    	<label class="switch-paddle" for="aa">
+								<span class="switch-active" aria-hidden="true">Ja</span>
+								<span class="switch-inactive" aria-hidden="true">Nein</span>
+							</label>
+					    </div>
+					</div>
+									</div>
+			</form>
+									
+				<div class="row input-group" id="groupWP">
+					<span class="input-group-label" style="width:auto">Web-Push-Mitteilungen</span>
+					<div class="input-group-button">
+						<button id="push-subscription-button">Push</button>
+					</div>
+				</div>
+							
+			
+				<div class="row input-group" style="text-align:left;display:none;" id="groupDI">
+					<span class="input-group-label" style="width:auto">Digitaler Schülerausweis</span>
+					<div class="input-group-button">
+						<button id="allowDigitadId" class="button secondary" onclick="registerForDigId()">Einrichten</button>
+					</div>
+				</div>
+						<div class="row input-group" style="text-align:left" id="groupDI">
+				<span class="input-group-label" style="width:auto">PassKey</span>
+				<div class="input-group-button">
+					<button id="allowDigitalAuth" class="button secondary" onclick="zeigeAjax();registerForDigAuth.a()">Einrichten</button>
+				</div>
+			</div>
+						<div>
+				<div class="input-group" style="margin-bottom:0">
+					<span class="input-group-label">Sicherheitsfrage</span>
+					<select class="input-group-field" id="sicherheitsfrage">
+						<option value=""></option>
+						<option value="2">Auf welchen Namen hört Dein Lieblingshaustier?</option><option value="6">Um welche Uhrzeit wurdest Du geboren (hh:mm)?</option><option value="7">Wer ist Dein Vorbild?</option><option value="1">Wie lautet Dein Lieblingsurlaubsort?</option>					</select>
+				</div>
+				<div class="input-group" style="margin-top:0">
+					<span class="input-group-label">Antwort</span>
+					<input class="input-group-field" type="text" id="sichantw" value="" placeholder="Antwort">
+					<div class="input-group-button">
+						<input type="submit" class="button" value="Speichern" onclick="setSFA(this.parentNode.previousSibling.previousSibling.value,document.getElementById('sicherheitsfrage').value)">
+					</div>
+				</div>
+				<form class="custom">
+				
+				<div>
+					<div class="row" style="text-align:center">
+						<a class="button warning" onclick="turnOffAutoLogin(true)">Automatisches Login beenden</a>
+					</div>
+				</div>
+				<button class="close-button" data-close="" aria-label="Close modal" type="button"><span aria-hidden="true">×</span></button>
+			</form></div>
+		</div>
+	</div>
+
+	
+
+<div class="reveal" id="Hilfe" data-reveal="do62le-reveal" role="dialog" aria-hidden="true" data-yeti-box="Hilfe" data-resize="Hilfe" data-events="resize">
+		<button class="close-button" data-close="" aria-label="Close modal" type="button"><span aria-hidden="true">×</span></button>
+		<h3>Hilfe</h3>
+		<div class="row">
+			<div class="small-12 columns" style="margin-bottom:1em">
+						Im Newsticker oben auf der Seite siehst Du die aktuellen Meldungen der Schule. Sollte der Text nicht ganz sichtbar sein, fahre Sie mit der Maus auf die Zeile, die Du ganz sehen möchtest. Tippe auf einem Mobilgerät auf eine Zeile, um sie ganz zu sehen zu bekommen. Bei erneutem Tippen läuft der Ticker wieder normal weiter.
+						</div> 
+		</div>
+		<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/menu_stdpl.svg)">&nbsp;</div>
+												<div class="small-11 columns">Hier siehst Du Deinen eigenen Stundenplan. Du kannst auf Desktopgeräten zwischen der aktuellen und der kommenden Woche wechseln, indem Du auf den Stundenplan klickst. Bei Mobilgeräten funktioniert dieses per Swipe.</div>
+						</div>
+		<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/menu_cal.svg)">&nbsp;</div>
+							<div class="small-11 columns">Hier siehst Du den Schulkalender sowie den Jahrgansstufenkalender (Oberstufe). Klicke auf die einzelnen Tage, um die Informationen vollständig zu sehen. Du kannst auf Desktopgeräten über die Pfeilknöpfe die Monate wechseln, bei Mobilgeräten funktioniert dieses per Swipe.</div>
+					</div>
+				<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/dl.svg)">&nbsp;</div>
+							<div class="small-11 columns">Hier siehst Du Dateien, die für Dich hochgeladen wurden. Klicke auf die Dateien, um sie herunterladen oder als gelesen markieren zu können. Du kannst Dateien ausblenden. Mit einem Klick auf das Auge kannst Du ausgeblendete Dateien wieder sichtbar machen. In Einstellungen kannst Du festlegen, dass Du bei neuen Mitteilungen per eMail informiert wirst.</div>
+					</div>
+				<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/menu_mitt.svg)">&nbsp;</div>
+							<div class="small-11 columns">Hier siehst Du Mitteilungen, die für Dich hochgeladen wurden. Klicke auf die Mitteilungen, als gelesen markieren oder ausblenden zu können. Du kannst Dateien ausblenden. Mit einem Klick auf das Auge kannst Du ausgeblendete Mitteilungen wieder sichtbar machen. In Einstellungen kannst Du festlegen, dass Du bei neuen Mitteilungen per eMail informiert wirst.</div>
+					</div>
+				<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/menu_voting.svg)">&nbsp;</div>
+							<div class="small-11 columns">Dieses Symbol siehst Du nur, wenn eine Umfrage für Dich bereit steht. Klicke auf das Symbol, um daran teilzunehmen.</div>
+					</div>
+				<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/imenu_upl.svg)">&nbsp;</div>
+			<div class="small-11 columns">Hier kannst Du Dateien an Lehrer senden. Bitte fülle dazu das Formular vollständig aus, wähle die Datei über den gelben Knopf aus und wähle im rechten Fenster den Lehrer / die Lehrer,k die diese Datei zum Download erhalten sollen.</div>
+		</div>
+						<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/menu_sett.svg)">&nbsp;</div>
+												<div class="small-11 columns">In den Einstellungen kannst Du Deine eMail-Adresse hinterlegen, so dass Du bei neuen Dateien, Mitteilungen oder Vertretungen informiert werden kannst. Wenn Du eine eMail-Adresse hinterlegt hast, kannst Du auch jederzeit ein neues Passwort anfordern (Login-Hilfe). Hier kannst Du auch das automatische Login beenden.</div>
+						</div>
+		<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/feedback.svg)">&nbsp;</div>
+							<div class="small-11 columns">Hier kannst Du ein Feedback / Änderungswünsche zum xChange loswerden.</div>
+					</div>
+		<div class="row">
+			<div class="small-1 columns hilfegrafik" style="background-image:url(img/menu_logout.svg)">&nbsp;</div>
+							<div class="small-11 columns">Abmelden. Klicke hier, um Dich vom System abzumelden.</div>
+					</div>
+	</div>
+<script src="js/foundation.min.js?v=1587165938"></script>
+
+<script>
+	function setPictureMailTxt() {
+		mailtxt="Im xChange liegt ein neues Bild von wijshoff.leo1 vor:<br><a href='https://www.fvsg-kleve.de'>Hier geht es zum xChange</a><br><br>";
+		pushtxt="Im xChange liegt ein neues Bild von wijshoff.leo1 vor.";
+		subject ='Neues Bild von wijshoff.leo1 im xChange des FvSG';
+		document.getElementById("senderInfoText").innerHTML="Lade Bild";
+	}
+	$(document).foundation();
+	//init();
+	
+	
+    function initMessage() {
+			}
+</script><div class="reveal-overlay" tabindex="-1" aria-hidden="true" data-close="msgOuter"></div><div class="reveal-overlay" tabindex="-1" aria-hidden="true" data-close="freeReveal"></div><div class="reveal-overlay" tabindex="-1" aria-hidden="true" data-close="sender"></div><div class="reveal-overlay" tabindex="-1" aria-hidden="true" data-close="afeedb"></div><div class="reveal-overlay" tabindex="-1" aria-hidden="true" data-close="Einstellungen"></div><div class="reveal-overlay" tabindex="-1" aria-hidden="true" data-close="Hilfe"></div>
+<script type="text/javascript" src="js/versender.js?v=1696607493"></script>
+<script src="js/vendor/what-input.js"></script>
+<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script></body></html>
