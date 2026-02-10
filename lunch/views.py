@@ -24,13 +24,15 @@ def booking(request):
         if not day_id:
             return redirect(reverse('lunch:lunch_booking'))
         day = get_object_or_404(LunchDay, pk=day_id)
-        menu = None
-        if menu_id:
+        if not menu_id:
+            # No lunch selected: delete any existing booking
+            LunchBooking.objects.filter(user=request.user, day=day).delete()
+        else:
             menu = get_object_or_404(Menu, pk=menu_id)
-        booking_obj, created = LunchBooking.objects.update_or_create(
-            user=request.user, day=day,
-            defaults={'menu': menu}
-        )
+            LunchBooking.objects.update_or_create(
+                user=request.user, day=day,
+                defaults={'menu': menu}
+            )
         return redirect(reverse('lunch:lunch_booking'))
 
     return render(request, 'lunch_booking.html', {
