@@ -31,6 +31,13 @@
                         <i class="bi bi-info-circle"></i> About
                     </a>
                 </li>
+                {% if user.is_authenticated and user.profile.lunch_eligible %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lunch:lunch_booking' %}">
+                        <i class="bi bi-egg-fried"></i> Lunch
+                    </a>
+                </li>
+                {% endif %}
             </ul>
 
             <ul class="navbar-nav">

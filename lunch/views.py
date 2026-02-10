@@ -35,6 +35,7 @@ def booking(request):
 
     return render(request, 'lunch_booking.html', {
         'days_with_booking': days_with_booking,
+        'lunch_eligible': True,
     })
 
 @require_POST
