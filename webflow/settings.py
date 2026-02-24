@@ -30,6 +30,14 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://192.168.178.110:8000',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+    'http://webflow.local:8000',  # If you are using a custom domain or local DNS
+    'http://webflow-nginx:80',    # If you're accessing via Nginx in Docker
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -149,3 +157,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Toggle whether new user registration via the signup form is enabled.
+# Use environment variable `REGISTER_ENABLED` (default: True).
+REGISTER_ENABLED = config('REGISTER_ENABLED', default=True, cast=bool)

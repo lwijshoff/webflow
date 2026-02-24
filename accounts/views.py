@@ -5,6 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods
+from django.conf import settings
+from django.http import Http404
 
 from .models import UserProfile
 from .forms import UserUpdateForm, UserProfileUpdateForm
@@ -14,6 +16,12 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        # If registration has been disabled via settings, show a friendly page.
+        if not getattr(settings, 'REGISTER_ENABLED', True):
+            return render(request, 'registration/registration_disabled.html')
+        return super().dispatch(request, *args, **kwargs)
 
 
 class ProfileDetailView(LoginRequiredMixin, DetailView):
