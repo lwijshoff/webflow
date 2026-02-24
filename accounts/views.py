@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -9,7 +9,10 @@ from django.conf import settings
 from django.http import Http404
 
 from .models import UserProfile
-from .forms import UserUpdateForm, UserProfileUpdateForm
+from .forms import UserUpdateForm
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
 
 
 class SignUpView(CreateView):
@@ -38,51 +41,23 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user'] = self.request.user
+        # Provide a sorted list of permission strings for display
+        perms = sorted(self.request.user.get_all_permissions())
+        context['permissions'] = perms
         return context
 
 
-class ProfileUpdateView(LoginRequiredMixin, UpdateView):
-    model = UserProfile
-    form_class = UserProfileUpdateForm
-    template_name = 'accounts/profile_edit.html'
-    login_url = 'login'
 
-    def get_object(self, queryset=None):
-        profile, created = UserProfile.objects.get_or_create(user=self.request.user)
-        return profile
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        if self.request.POST:
-            context['user_form'] = UserUpdateForm(self.request.POST, instance=self.request.user)
-        else:
-            context['user_form'] = UserUpdateForm(instance=self.request.user)
-        return context
 
-    def form_valid(self, form):
-        context = self.get_context_data()
-        user_form = context['user_form']
-        
-        if user_form.is_valid():
-            user_form.save()
-            profile = form.save(commit=False)
-            profile.user = self.request.user
-            profile.save()
-            messages.success(self.request, 'Your profile has been updated successfully!')
-            return redirect('profile')
-        else:
-            return self.form_invalid(form)
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = UserProfileUpdateForm(request.POST, request.FILES, instance=self.object)
-        
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, 'Your profile has been updated successfully!')
-            return redirect('profile')
-        
-        context = self.get_context_data(form=profile_form, user_form=user_form)
-        return render(request, self.template_name, context)
+@login_required
+@require_http_methods(["POST"])
+def profile_update_email(request):
+    """AJAX endpoint to update the current user's email address."""
+    user = request.user
+    form = UserUpdateForm(request.POST, instance=user)
+    if form.is_valid():
+        form.save()
+        return JsonResponse({"status": "ok", "email": user.email})
+    else:
+        return JsonResponse({"status": "error", "errors": form.errors}, status=400)

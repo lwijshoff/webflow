@@ -3,10 +3,6 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    bio = models.TextField(blank=True, default='')
-    location = models.CharField(max_length=100, blank=True, default='')
-    website = models.URLField(blank=True, default='')
-    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
     # Whether the user is eligible to book lunch via the web interface
     lunch_eligible = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

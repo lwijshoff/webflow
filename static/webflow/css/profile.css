@@ -1,0 +1,30 @@
+/* Profile page styles - modern, minimal tweaks on top of Bootstrap */
+.avatar {
+    width: 96px;
+    height: 96px;
+    font-size: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 576px) {
+    .avatar { width: 72px; height: 72px; font-size: 1.25rem; }
+}
+
+.card .list-group-item { border: 0; padding-left: 0; padding-right: 0; }
+
+#emailContainer { display: inline-flex; align-items: center; gap: .5rem; }
+#emailContainer .form-control { display: inline-block; }
+
+.btn-outline-secondary { border-radius: 6px; }
+
+.card { border-radius: 12px; }
+
+.bi { vertical-align: -.125em; }
+
+.text-muted.small { font-size: .85rem; }
+
+/* small visual spacing for success/error flashes inserted by JS */
+#emailContainer .alert { margin-top: .5rem; }
+
